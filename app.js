@@ -1,24 +1,13 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
-
+const string_square = require ('./square');
 const bodyParser = require('body-parser');
 
 app.use( bodyParser.json() );
 
-
-app.listen(PORT, () => console.log('Example app listening on port '+ PORT));
-
 app.get('/', (req, res) => res.send('Hello World!'));
+
 let result;
-
-function string_square(s){
-    
- if (isNaN(s)){
-    return s.length*s.length;
-
- }else return -1;
-};
 
 app.get('/square', (req, res) => {
 
@@ -27,4 +16,6 @@ app.get('/square', (req, res) => {
 
 
     res.status(200).json(result);
-    });
+});
+
+module.exports = app;

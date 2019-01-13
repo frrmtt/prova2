@@ -15,7 +15,7 @@ app.get('/square', (req, res) => {
     result = string_square(parola);
 
 
-    res.status(200).json(result);
+    res.status(200).json({ result: result});
 });
 
 module.exports = app;
